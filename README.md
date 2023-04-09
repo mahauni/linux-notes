@@ -28,7 +28,6 @@ to create a user without access to the shell do:
 sudo useradd [username] -s /bin/false
 ```
 
-
 ### Timezones
 
 to get the current date settings
@@ -92,4 +91,22 @@ Boot GUI
 
 ```bash
 $ systemctl set-default graphical.target
+```
+
+### Root Login
+
+To enable ssh login, you should go to
+
+```bash
+$ cd /etc/ssh
+```
+
+and edit the sshd_config file with any editor you like.
+
+to change the Root Login, you should take oof the '#' (comment) and choose between yes or no.
+
+After changing restart the ssh with the command:
+
+```bash
+$ systemctl restart sshd
 ```
