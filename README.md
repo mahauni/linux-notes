@@ -1,5 +1,10 @@
+# Linux
 
+When doing a command is always good look the manual, so than always is good to do:
 
+```bash
+$ man [command]
+```
 
 ## Connecting to other devices (ssh)
 
@@ -109,4 +114,48 @@ After changing restart the ssh with the command:
 
 ```bash
 $ systemctl restart sshd
+```
+
+### SSH connection without password
+
+If you want to connection ssh without password, because you have to connect everyday or something and you dont want to pass password everytime conecting
+
+You will need to have a ssh key. If you dont have, do this command
+
+```bash
+$ ssh-keygen
+```
+
+After typing this, it will appear some configurations, but you can use the default configurations. So it will create a pair ssh key in the ~/.ssh, a private (.pub) and a private. But you dont need to care about it.
+
+So to make the connection without password, you will need to:
+
+```bash
+$ ssh-copy-id [name]@[ip]
+```
+
+After typing you will have to make the same steps when connecting, and then after all the configuration.
+You should be able to make a ssh without need the password
+
+### Find
+
+the command find is a powerfull tool to find files with some characterists and than do some commands like mv, rm or cp. 
+
+This powerfull command is a bit tricky to use, so use it mostly with cp and not with other because it can cause some big trouble if done wrong.
+
+the command is like this
+
+```bash
+$ find [dir] [flags] -type f -exec [other command (cp)] [flags] [to dir] {} +
+```
+
+the command is find all files in the dir that correspond to the flags, like -user to find the user, -name to find some file with specif name and a lot of more of flags.
+the -type f is to get only the files with the path.
+
+the exec command need the command, flags like --parent to cp all the parents folders too to a certain dir
+
+ex. 
+
+```bash
+$ find /home/usr -user some_other_user -type f -exec cp --parents /home/usr2 {} +
 ```
