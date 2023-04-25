@@ -159,3 +159,17 @@ ex.
 ```bash
 $ find /home/usr -user some_other_user -type f -exec cp --parents /home/usr2 {} +
 ```
+
+### String manipulation (sed)
+
+we can replace or delete some ocurrence of said string in some file:
+
+- replace:
+```bash
+$ sed 's/\b[string]\b/[string_to_be_replaced]/g' [file] > [to_file]
+```
+
+- delete
+```bash
+$ sed '/\<[string]\>/d' [file] > [to_file]
+```
