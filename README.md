@@ -173,3 +173,29 @@ $ sed 's/\b[string]\b/[string_to_be_replaced]/g' [file] > [to_file]
 ```bash
 $ sed '/\<[string]\>/d' [file] > [to_file]
 ```
+
+### Cron
+
+This is a tool to automate programs when certain periods of time has been elapsed. So 5 in 5 minutes for example.
+To set up this you will need to have installed cronie.
+```bash
+$ yum install cronie -y
+```
+After installed you will have to start the crond in your machine, and to do that you will have to
+```bash
+$ service crond start
+
+$ service crond status
+```
+After seeing the status of crond and seeing it is active
+
+you can edit the cron file with
+```bash
+$ crontab -e
+
+$ contab -l
+```
+After you edit you can see all your cron with the list. And after seeing the command is there its all good now
+
+Ex. of some cron code:
+*/5 * * * * echo hello > /tmp/cron_text
