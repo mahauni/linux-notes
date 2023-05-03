@@ -199,3 +199,7 @@ After you edit you can see all your cron with the list. And after seeing the com
 
 Ex. of some cron code:
 */5 * * * * echo hello > /tmp/cron_text
+
+### DNS
+
+To add more nameservers to the server, we can do this changing the file in /etc/resolv.conf and add the line nameserver [DNS] and we can add multiple lines to the DNS.
