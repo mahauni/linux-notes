@@ -6,6 +6,12 @@ When doing a command is always good look the manual, so than always is good to d
 $ man [command]
 ```
 
+it is also good to check if the service is running without problems with:
+```bash
+$ systemctl status [program]
+```
+and this will show the status of the program typed, good for checking for easy fails.
+
 ## Connecting to other devices (ssh)
 
 to connect to other devices you have to use in your shell the ssh command
@@ -31,6 +37,11 @@ the option with available shell is a default value in the /etc/default/useradd, 
 to create a user without access to the shell do:
 ```bash
 sudo useradd [username] -s /bin/false
+```
+
+to create a user with a expire date:
+```bash
+sudo useradd -e [YYYY-MM-DD] [username]
 ```
 
 ### Timezones
