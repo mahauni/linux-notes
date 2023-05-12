@@ -214,3 +214,32 @@ Ex. of some cron code:
 ### DNS
 
 To add more nameservers to the server, we can do this changing the file in /etc/resolv.conf and add the line nameserver [DNS] and we can add multiple lines to the DNS.
+
+### Directories
+
+When doing ll -lsd [file_path] is possible to see which permissions is in the directory.
+They are the same as the file permisssions but with some twists.
+
+When doing the command you will get something like this: 
+4 drwxr-xr-x 2 root root 4096 Jun 19 04:54 /devops/data/
+4 [permissions] [id_in_tree_file] [who_created] [who_can_enter] [date] [path]
+
+All the files are visible to the root, so this is only for the users
+
+So is possible to change the visibility of the folder and who can see it.
+
+This change the visibility of the folder to the group name set it:
+```bash
+chgrp -R [group name] [file_path]
+```
+
+This change the permissions of the folder:
+```bash
+$ chmod -R 2770 /devops/data
+```
+The numbers in the chmod are 
+
+1st digit - i dont know but looks like is for setuid, setgid and stick bits ??? (whatever that means)
+2nd digit - root permissions (4 = read, 2 = write, 1 = execute) so 1 + 2 + 4 = 7 is all
+3rd digit - group permissions (4 = read, 2 = write, 1 = execute) so 1 + 2 + 4 = 7 is all
+4th digit - others permissions (4 = read, 2 = write, 1 = execute) so 0 = 0 is none
