@@ -64,14 +64,14 @@ $ tzselect
 
 Flags:
 
-(r) -> Read
-(w) -> Write
-(x) -> Execute
+(r) -> Read  <br>
+(w) -> Write  <br>
+(x) -> Execute  <br>
 
-(u) -> Users
-(g) -> Group
-(o) -> Others
-(a) -> All
+(u) -> Users  <br>
+(g) -> Group  <br>
+(o) -> Others  <br>
+(a) -> All <br>
 
 ```bash
 $ chmod [flags] [file or folder]
@@ -117,9 +117,9 @@ To enable ssh login, you should go to
 $ cd /etc/ssh
 ```
 
-and edit the sshd_config file with any editor you like.
+and edit the sshd_config file with any editor you like. <br>
 
-to change the Root Login, you should take oof the '#' (comment) and choose between yes or no.
+to change the Root Login, you should take oof the '#' (comment) and choose between yes or no. <br>
 
 After changing restart the ssh with the command:
 
@@ -129,7 +129,7 @@ $ systemctl restart sshd
 
 ### SSH connection without password
 
-If you want to connection ssh without password, because you have to connect everyday or something and you dont want to pass password everytime conecting
+If you want to connection ssh without password, because you have to connect everyday or something and you dont want to pass password everytime conecting <br>
 
 You will need to have a ssh key. If you dont have, do this command
 
@@ -137,7 +137,7 @@ You will need to have a ssh key. If you dont have, do this command
 $ ssh-keygen
 ```
 
-After typing this, it will appear some configurations, but you can use the default configurations. So it will create a pair ssh key in the ~/.ssh, a private (.pub) and a private. But you dont need to care about it.
+After typing this, it will appear some configurations, but you can use the default configurations. So it will create a pair ssh key in the ~/.ssh, a private (.pub) and a private. But you dont need to care about it. <br>
 
 So to make the connection without password, you will need to:
 
@@ -150,9 +150,9 @@ You should be able to make a ssh without need the password
 
 ### Find
 
-the command find is a powerfull tool to find files with some characterists and than do some commands like mv, rm or cp. 
+the command find is a powerfull tool to find files with some characterists and than do some commands like mv, rm or cp. <br>
 
-This powerfull command is a bit tricky to use, so use it mostly with cp and not with other because it can cause some big trouble if done wrong.
+This powerfull command is a bit tricky to use, so use it mostly with cp and not with other because it can cause some big trouble if done wrong. <br>
 
 the command is like this
 
@@ -161,7 +161,7 @@ $ find [dir] [flags] -type f -exec [other command (cp)] [flags] [to dir] {} +
 ```
 
 the command is find all files in the dir that correspond to the flags, like -user to find the user, -name to find some file with specif name and a lot of more of flags.
-the -type f is to get only the files with the path.
+the -type f is to get only the files with the path. <br>
 
 the exec command need the command, flags like --parent to cp all the parents folders too to a certain dir
 
@@ -198,7 +198,7 @@ $ service crond start
 
 $ service crond status
 ```
-After seeing the status of crond and seeing it is active
+After seeing the status of crond and seeing it is active <br>
 
 you can edit the cron file with
 ```bash
@@ -206,9 +206,9 @@ $ crontab -e
 
 $ contab -l
 ```
-After you edit you can see all your cron with the list. And after seeing the command is there its all good now
+After you edit you can see all your cron with the list. And after seeing the command is there its all good now <br>
 
-Ex. of some cron code:
+Ex. of some cron code: <br>
 */5 * * * * echo hello > /tmp/cron_text
 
 ### DNS
@@ -217,16 +217,16 @@ To add more nameservers to the server, we can do this changing the file in /etc/
 
 ### Directories
 
-When doing ll -lsd [file_path] is possible to see which permissions is in the directory.
-They are the same as the file permisssions but with some twists.
+When doing ll -lsd [file_path] is possible to see which permissions is in the directory. <br>
+They are the same as the file permisssions but with some twists. <br>
 
-When doing the command you will get something like this: 
-4 drwxr-xr-x 2 root root 4096 Jun 19 04:54 /devops/data/
-4 [permissions] [id_in_tree_file] [who_created] [who_can_enter] [date] [path]
+When doing the command you will get something like this:  <br>
+4 drwxr-xr-x 2 root root 4096 Jun 19 04:54 /devops/data/  <br>
+4 [permissions] [id_in_tree_file] [who_created] [who_can_enter] [date] [path]  <br>
 
-All the files are visible to the root, so this is only for the users
+All the files are visible to the root, so this is only for the users  <br>
 
-So is possible to change the visibility of the folder and who can see it.
+So is possible to change the visibility of the folder and who can see it.  <br>
 
 This change the visibility of the folder to the group name set it:
 ```bash
@@ -239,7 +239,7 @@ $ chmod -R 2770 /devops/data
 ```
 The numbers in the chmod are 
 
-1st digit - i dont know but looks like is for setuid, setgid and stick bits ??? (whatever that means)
-2nd digit - root permissions (4 = read, 2 = write, 1 = execute) so 1 + 2 + 4 = 7 is all
-3rd digit - group permissions (4 = read, 2 = write, 1 = execute) so 1 + 2 + 4 = 7 is all
+1st digit - i dont know but looks like is for setuid, setgid and stick bits ??? (whatever that means) <br>
+2nd digit - root permissions (4 = read, 2 = write, 1 = execute) so 1 + 2 + 4 = 7 is all <br>
+3rd digit - group permissions (4 = read, 2 = write, 1 = execute) so 1 + 2 + 4 = 7 is all <br>
 4th digit - others permissions (4 = read, 2 = write, 1 = execute) so 0 = 0 is none
