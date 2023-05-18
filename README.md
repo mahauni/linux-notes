@@ -243,3 +243,12 @@ The numbers in the chmod are
 2nd digit - root permissions (4 = read, 2 = write, 1 = execute) so 1 + 2 + 4 = 7 is all <br>
 3rd digit - group permissions (4 = read, 2 = write, 1 = execute) so 1 + 2 + 4 = 7 is all <br>
 4th digit - others permissions (4 = read, 2 = write, 1 = execute) so 0 = 0 is none
+
+### Safe copy files between servers (scp)
+
+You are able to copy files from and to another server
+You should be able to do it with:
+```bash
+$ scp [curr_path_to_file] [name_of_server]@[server_ip]:[path_of_the_copy]
+$ scp -r [path_to_dir] [name_of_server]@[server_ip]:[path_of_the_copy]
+``
